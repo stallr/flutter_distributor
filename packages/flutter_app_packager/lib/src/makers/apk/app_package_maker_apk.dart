@@ -16,8 +16,11 @@ class AppPackageMakerApk extends AppPackageMaker {
       final splits = file.uri.pathSegments.last.split('-');
       if (splits.length > 2) {
         final sublist = splits.sublist(1, splits.length - 1);
-        final outputSplits = config.outputFile.path.split('.');
-        final output = '${outputSplits.first}-${sublist.join('-')}.${outputSplits.last}';
+        final outputPath = config.outputFile.path;
+        final lastDotIndex = outputPath.lastIndexOf('.');
+        final firstPart = outputPath.substring(0, lastDotIndex);
+        final lastPart = outputPath.substring(lastDotIndex + 1);
+        final output = '$firstPart-${sublist.join('-')}.${lastPart}';
         file.copySync(output);
       }
     }

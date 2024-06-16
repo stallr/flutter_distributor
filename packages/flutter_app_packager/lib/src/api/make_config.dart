@@ -9,7 +9,7 @@ import 'package:pubspec_parse/pubspec_parse.dart';
 import 'package:yaml/yaml.dart';
 
 const _kArtifactName =
-    '{{name}}-{{platform}}{{#description}}-{{description}}{{/description}}{{#is_installer}}-setup{{/is_installer}}{{#ext}}.{{ext}}{{/ext}}';
+    '{{name}}-{{build_name}}-{{platform}}{{#description}}-{{description}}{{/description}}{{#is_installer}}-setup{{/is_installer}}{{#ext}}.{{ext}}{{/ext}}';
 
 class MakeConfig {
   late bool isInstaller = false;
